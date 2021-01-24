@@ -21,6 +21,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_file = os.path.join(BASE_DIR, "env.env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
+    Q_CLUSTER = {
+        'redis': 'redis://:p7bc84b20a0e1eaac2e0309631419f4007a2e45017be6bb9cbf81e46e9f1b4af8@ec2-34-205-251-194.compute-1.amazonaws.com:12989'
+    }
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -106,24 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-Q_CLUSTER = {
-    'name': 'django_q_django',
-    'workers': 8,
-    'recycle': 500,
-    'timeout': 60,
-    'compress': True,
-    'save_limit': 250,
-    'queue_limit': 500,
-    'cpu_affinity': 1,
-    'label': 'Django Q',
-    'redis': {
-        'host': 'ec2-34-205-251-194.compute-1.amazonaws.com',
-        'port': 12989,
-        'password': 'p7bc84b20a0e1eaac2e0309631419f4007a2e45017be6bb9cbf81e46e9f1b4af8',
-        'db': 0, }
-}
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
