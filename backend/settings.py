@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 dotenv_file = os.path.join(BASE_DIR, "env.env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
+else:
     Q_CLUSTER = {
         'name': 'django_q_django',
         'workers': 8,
