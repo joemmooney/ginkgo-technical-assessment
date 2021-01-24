@@ -16,8 +16,7 @@ class App extends Component {
         dnasequence: "",
         forcererun: false
       },
-      dnaSearchList: [],
-      siteurl: "http://localhost:8000/"
+      dnaSearchList: []
     };
   }
   componentDidMount() {
@@ -25,7 +24,7 @@ class App extends Component {
   }
   refreshList = () => {
     axios
-      .get(this.state.siteurl + "api/SearchProteins/")
+      .get("/api/SearchProteins/")
       .then(res => this.setState({ dnaSearchList: res.data }))
       .catch(err => console.log(err));
   };
@@ -37,7 +36,7 @@ class App extends Component {
     {
       item.forcererun = false
       axios
-        .delete(this.state.siteurl + `api/SearchProteins/${item.dnasequence}/`)
+        .delete(`/api/SearchProteins/${item.dnasequence}/`)
         .then(res => this.handleSubmit(item))
         .catch(err => console.log(err));
     }
@@ -46,14 +45,14 @@ class App extends Component {
       this.toggle();
       var postItem = { dnasequence: item.dnasequence }
       axios
-        .post(this.state.siteurl + "api/SearchProteins/", postItem)
+        .post("/api/SearchProteins/", postItem)
         .then(res => this.refreshList())
         .catch(err => console.log(err));
     }
   };
   handleDelete = item => {
     axios
-      .delete(this.state.siteurl + `api/SearchProteins/${item.dnasequence}/`)
+      .delete(`/api/SearchProteins/${item.dnasequence}/`)
       .then(res => this.refreshList())
       .catch(err => console.log(err));
   };
