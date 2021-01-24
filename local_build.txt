@@ -1,0 +1,2 @@
+pipenv install -r requirements.txt
+python manage.py runserver & redis-server & yarn start & python manage.py qcluster
