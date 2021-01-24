@@ -31,6 +31,13 @@ class App extends Component {
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
+  handleSearchProteins = item => {
+    this.refreshList();
+    axios
+      .get(`/api/SearchProteins/${item.dnasequence}/searchProteins/`)
+      .then(res => this.refreshList())
+      .catch(err => console.log(err));
+  }
   handleSubmit = item => {
     if (item.forcererun)
     {
@@ -46,7 +53,7 @@ class App extends Component {
       var postItem = { dnasequence: item.dnasequence }
       axios
         .post("/api/SearchProteins/", postItem)
-        .then(res => this.refreshList())
+        .then(res => this.handleSearchProteins(item))
         .catch(err => console.log(err));
     }
   };
