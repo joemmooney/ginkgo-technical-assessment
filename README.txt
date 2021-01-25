@@ -7,7 +7,7 @@ Run locally by doing the following:
 1) Download project from GitHub.
 2) Enter terminal.
 3) Navigate to project folder.
-4) Run 'pipenv shell' in terminal to enter the pipenv shell (requires pipenv downloaded on computer).
+4) Run 'pipenv shell' in terminal to enter the pipenv shell (requires pipenv downloaded on computer) (installs dependencies from requirements.txt on first time run).
 5) Run 'bash local_build.txt' to run program.
 
 After running the bash command, all dependencies for the project should be downloaded into your pipenv, then it should run on 'localhost:3000'.  You can access the underlying database by navigating to 'localhost:8000/api/SearchProteins/'.
