@@ -1,4 +1,4 @@
-Application to Search for portions encoded by DNA sequences in a Small Protein Database
+Application to Search for Portions Encoded by DNA Sequences in a Small Protein Database
 
 Run online at 'https://search-proteins-for-dna.herokuapp.com'.
 
